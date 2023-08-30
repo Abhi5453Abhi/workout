@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Workout</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+    <% if (locals.user) { %>
+    <div class="container mt-4">
+        <form action="/" action="GET">
+            <div class="mb-3">
+                <label for="date" class="form-label">Select Date:</label>
+                <input type="date" id="date" name="date">
+                <button class="btn btn-primary btn-sm">Find Records</button>
+            </div>
+        </form>
+        <ul class="list-group list-group-horizontal list-group-item-info mt-4">
+            <li class="list-group-item">Date</li>
+            <li class="list-group-item">Muscle Name</li>
+            <li class="list-group-item">Exercise Name</li>
+            <li class="list-group-item">Weight</li>
+            <li class="list-group-item">Reps</li>
+            <li class="list-group-item">Total</li>
+        </ul>
+        <% locals.workouts.forEach(element => { %>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item"><strong><%= element.createdAt %></strong></li>
+            <li class="list-group-item"><strong><%= element.muscleName %></strong></li>
+            <li class="list-group-item"><%= element.exerciseName %></li>
+            <li class="list-group-item"><%= element.weight %></li>
+            <li class="list-group-item"><%= element.reps %></li>
+            <li class="list-group-item"><%= (element.reps)*(element.weight) %></li>
+        </ul>
+        <% }) %>
+    </div>
+    <% } %>
+
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>

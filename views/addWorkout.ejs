@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <title>Workout</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+    <div class="container mt-3">
+        <form action="/workout" method="POST">
+            <div class="mb-3">
+                <label for="muscleName" class="form-label">Muscle name</label>
+                <input type="text" class="form-control" id="muscleName" name="muscleName" aria-describedby="muscleName">
+            </div>
+            <div class="mb-3">
+                <label for="exerciseName" class="form-label">Exercise name</label>
+                <input type="text" class="form-control" id="exerciseName" name="exerciseName"
+                    aria-describedby="exerciseName">
+            </div>
+            <div class="mb-3">
+                <label for="weight" class="form-label">Weight</label>
+                <input type="text" class="form-control" id="weight" name="weight" aria-describedby="weight">
+            </div>
+            <div class="mb-3">
+                <label for="weight" class="form-label">Reps</label>
+                <input type="text" class="form-control" id="reps" name="reps" aria-describedby="reps">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+
+</html>
