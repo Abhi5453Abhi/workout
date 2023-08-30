@@ -25,6 +25,7 @@ app.use('/user', userRoute);
 app.use('/workout', workoutRoute);
 
 app.get('/', async (req, res) => {
+    console.log({ mongourl: process.env.MONGO_URL });
     let formattedWorkouts = null;
     if (req.user) {
         let query = { createdBy: req.user._id };
