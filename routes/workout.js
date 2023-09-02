@@ -10,6 +10,23 @@ router.get('/add', (req, res) => {
     });
 })
 
+router.get('/leaderboard', async (req, res) => {
+    let query = {};
+    if (req.query.date) {
+        query = {
+            ...query, "createdAt": {
+                "$gte": new Date(req.query.date + "T00:00:00.000Z"),
+                "$lt": new Date(new Date(req.query.date).getTime() + 24 * 60 * 60 * 1000)
+            }
+        }
+    }
+    const workouts = await WorkoutModel.find(query).sort({ 'createdAt': -1 }).populate('createdBy');
+    return res.render('leaderboard', {
+        user: req.user,
+        workouts
+    });
+})
+
 router.post('/', async (req, res) => {
     const { muscleName, exerciseName, weight, reps } = req.body;
     await WorkoutModel.create({
@@ -18,7 +35,7 @@ router.post('/', async (req, res) => {
         weight,
         reps,
         createdBy: req.user._id
-    })
+    });
     return res.redirect('/');
 })
 

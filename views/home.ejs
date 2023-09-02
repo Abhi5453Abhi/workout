@@ -36,10 +36,62 @@
         </ul>
         <% }) %>
     </div>
-    <% } %>
-
-
     <%- include('./partials/scripts') %>
+    <% } else { %>
+    <header>
+        <h1>Welcome to Our Fitness Community!</h1>
+    </header>
+    <main>
+        <section>
+            <p>It seems like you're either not logged in or haven't created an account yet. Don't worry; we've got you
+                covered. Becoming a part of our fitness community unlocks a world of benefits. Here's why you should
+                consider it:</p>
+
+            <ol>
+                <li>
+                    <h2>Access Personalized Workouts:</h2>
+                    <p>Logging in gives you access to customized workout plans tailored to your fitness goals and level.
+                        Whether you're looking to lose weight, build muscle, or stay fit, we've got a workout for you.
+                    </p>
+                </li>
+                <li>
+                    <h2>Track Your Progress:</h2>
+                    <p>With an account, you can easily monitor your fitness journey. Record your workouts, track your
+                        weight, and see your improvements over time.</p>
+                </li>
+                <li>
+                    <h2>Join Our Leaderboard:</h2>
+                    <p>Compete with others on our leaderboard and see where you stand in terms of fitness achievements.
+                        Challenge yourself and others to reach new heights.</p>
+                </li>
+                <li>
+                    <h2>Community Engagement:</h2>
+                    <p>Interact with fellow fitness enthusiasts, share your success stories, and get inspired by others'
+                        achievements. Join discussions, ask questions, and support each other on your fitness journeys.
+                    </p>
+                </li>
+                <li>
+                    <h2>Exclusive Content and Updates:</h2>
+                    <p>Stay up-to-date with the latest fitness tips, nutrition advice, and exercise routines through our
+                        newsletters and blog posts.</p>
+                </li>
+                <li>
+                    <h2>Stay Motivated:</h2>
+                    <p>Being part of our community provides you with the motivation and accountability you need to stay
+                        on track with your fitness goals.</p>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <p>Ready to Get Started? Creating an account is quick and easy. Just click on the "Sign Up" or "Log In"
+                button to start your fitness journey today! In the meantime, feel free to explore our Workout and
+                Leaderboard tabs to get a taste of what's waiting for you.</p>
+
+            <p>Remember, fitness is not just a destination; it's a journey. Let's embark on it together and achieve
+                greatness!</p>
+        </section>
+    </main>
+    <% } %>
 </body>
 
 </html>

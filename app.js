@@ -6,7 +6,7 @@ const workoutRoute = require('./routes/workout');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { checkForAuthenticationCookie } = require('./middlewares/authentication');
-const workoutModel = require('./models/workout');
+const WorkoutModel = require('./models/workout');
 
 
 //Connect mongodb
@@ -37,7 +37,7 @@ app.get('/', async (req, res) => {
                 }
             }
         }
-        workouts = await workoutModel.find(query).sort({ 'createdAt': -1 });
+        workouts = await WorkoutModel.find(query).sort({ 'createdAt': -1 });
         formattedWorkouts = workouts.map(workout => ({
             ...workout._doc,
             createdAt: workout.createdAt.toISOString().split('T')[0]
@@ -47,6 +47,12 @@ app.get('/', async (req, res) => {
         user: req.user,
         workouts: formattedWorkouts
     })
+})
+
+app.get('/about', (req, res) => {
+    res.render('about', {
+        user: req.user
+    });
 })
 
 const PORT = process.env.PORT || 8000;
